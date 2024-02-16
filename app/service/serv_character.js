@@ -1,21 +1,15 @@
-// Importando o jQuery
-import $ from 'jquery';
-
-// Função para buscar a informação da API
-export function getCharacters() {
-  return new Promise((resolve, reject) => {
-    $.ajax({
-      url: 'https://rickandmortyapi.com/api/character',
-      method: 'GET',
-      success: response => {
-        resolve(response);
-      },
-      error: error => {
-        reject(error);
-      }
-    });
-  });
-}
+const url = 'https://rickandmortyapi.com/api';
 
 
-  
+export const fetchData = async () => {
+  try {
+    const response = await fetch(`${url}/character`);
+    const jsonData = await response.json();
+    //console.log(jsonData.results);
+    return jsonData.results[0];
+  } catch (error) {
+    console.error("Erro ao buscar os dados:", error);
+    return null;
+  }
+};
+
