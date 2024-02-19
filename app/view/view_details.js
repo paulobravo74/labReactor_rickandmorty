@@ -1,10 +1,10 @@
+//import list from '../view/components/list.js'
 
 
+export default function render(character) {
+    $('#app').empty().append($('<h1>').text('character'));
+    console.log(character);
 
-export default function render(character_view) {
-    $('#app').empty().append($('<h1>').text(character_view));
 
-    $('#app').append($('<a>page01</a><br>'));
-    $('#app').append($('<a href="./#hello_09" title="Tricks page02">page02</a><br>'));
-    $('#app').append($('<a href="./#hello_03" title="Tricks page03">page03</a>'));
+    $('#app').append($('<a href="./#home" title="Tricks home">home</a><br>'));
 }

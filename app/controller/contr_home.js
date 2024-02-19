@@ -1,11 +1,10 @@
 import { fetchData } from '../service/serv_character.js';
 import wait from '../view/view_wait.js'
+import error from '../view/view_error.js'
 import home from '../view/view_home.js'
 
 
-
-
-
+export let fetchOut = fetchData();
 
 
 
@@ -13,31 +12,18 @@ import home from '../view/view_home.js'
 export default async function () {
     wait();
 
-    
-    
-    
-    //const displayCharacterName = async () => {
+       
         try {
-            const characterName = await fetchData();
+            const characters = await fetchData();
+            home(characters);   
             
-            //$('#app').append($('<div id="characterName">Hello ' + characterName.name + " you're " + characterName.status + '</div>'))
-            console.log(characterName);
+            
+            //console.log(characters[10]);
             
         } catch (error) {
             console.error("Erro ao buscar os dados:", error);
         }
-    //};
     
-   // displayCharacterName();
-    
-    const {name, status} = fetchData();
-
-    home();
-
-
-    //waitView();
-
-    //helloView(`This is another message ${firstName}`);
     
     
     
